@@ -3,9 +3,13 @@ import Routes from './routes';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import AuthProvider from './context/Auth';
+
 function App() {
   return (
-    <Routes />
+    <AuthProvider>
+      <Routes />
+    </AuthProvider>
   );
 }
 

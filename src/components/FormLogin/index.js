@@ -2,10 +2,22 @@ import React, { useState, useRef } from 'react';
 import {
   Container, Row, FormControl, FloatingLabel, Button, Overlay, Tooltip,
 } from 'react-bootstrap';
+import LoginRequest from '../../services/api';
 
 function FormLogin() {
   const [show, setShow] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const target = useRef(null);
+
+  async function buttonLogin() {
+    try {
+      const { data: { name }, headers: { authorization } } = await LoginRequest(email, password);
+      localStorage.setItem('user', JSON.stringify({ name, token: authorization }));
+    } catch (error) {
+      setShow(true);
+    }
+  }
 
   return (
     <Container
@@ -36,6 +48,7 @@ function FormLogin() {
               placeholder="name@example.com"
               style={{ backgroundColor: 'rgba(0,0,0,0.32)', boxShadow: 'none' }}
               type="email"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </FloatingLabel>
         </Row>
@@ -46,9 +59,10 @@ function FormLogin() {
               placeholder="Password"
               style={{ backgroundColor: 'rgba(0,0,0,0.32)', boxShadow: 'none' }}
               type="password"
+              onChange={(e) => setPassword(e.target.value)}
               ref={target}
             />
-            <Button id="button" onClick={() => setShow(!show)} style={{ boxShadow: 'none' }}>Entrar</Button>
+            <Button id="button" onClick={() => buttonLogin()} style={{ boxShadow: 'none' }}>Entrar</Button>
           </FloatingLabel>
         </Row>
         <Row sm={3}>
