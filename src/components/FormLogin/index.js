@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Container, Row, FormControl, FloatingLabel, Button, Overlay, Tooltip,
 } from 'react-bootstrap';
@@ -9,13 +10,15 @@ function FormLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const target = useRef(null);
+  const history = useHistory();
 
   async function buttonLogin() {
     try {
       const { data: { name }, headers: { authorization } } = await LoginRequest(email, password);
       localStorage.setItem('user', JSON.stringify({ name, token: authorization }));
+      return history.push('/home');
     } catch (error) {
-      setShow(true);
+      return setShow(true);
     }
   }
 
