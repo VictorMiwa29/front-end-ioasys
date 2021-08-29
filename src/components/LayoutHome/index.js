@@ -53,11 +53,11 @@ function LayoutHome() {
           <p style={{ fontSize: '12px', fontWeight: 'bold' }} className="mt-4" id="nome">{nameUser}</p>
           <Button
             style={{
-              borderRadius: '50%', height: '35px', width: '35px', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center',
+              borderRadius: '50%', height: '35px', width: '35px', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white', borderColor: '#333333',
             }}
             className="ms-4"
           >
-            <FiLogOut />
+            <FiLogOut style={{ color: '#333333' }} />
           </Button>
         </Container>
       </Container>
@@ -71,6 +71,7 @@ function LayoutHome() {
             publisher={book.publisher}
             published={book.published}
             image={book.imageUrl}
+            id={book.id}
           />
         )) }
       </Row>
@@ -79,22 +80,22 @@ function LayoutHome() {
           <p style={{ fontSize: '12px' }} className="mt-4" id="textoPaginas">{`Página ${page} de ${pageTotal}`}</p>
           <Button
             style={{
-              borderRadius: '50%', height: '35px', width: '35px', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center',
+              borderRadius: '50%', height: '35px', width: '35px', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white', borderColor: '#333333',
             }}
             className="ms-4"
             onClick={() => backPage()}
             id="backButton"
           >
-            <IoIosArrowBack />
+            <IoIosArrowBack style={{ color: '#333333' }} />
           </Button>
           <Button
             style={{
-              borderRadius: '50%', height: '35px', width: '35px', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center',
+              borderRadius: '50%', height: '35px', width: '35px', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white', borderColor: '#333333',
             }}
             className="ms-3"
             onClick={() => nextPage()}
           >
-            <IoIosArrowForward />
+            <IoIosArrowForward style={{ color: '#333333' }} />
           </Button>
         </Container>
       </Container>

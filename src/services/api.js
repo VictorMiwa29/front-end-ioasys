@@ -21,7 +21,18 @@ async function BooksRequest(token, page) {
   return api;
 }
 
+async function BookIdRequest(token, id) {
+  const api = await axios.get(`https://books.ioasys.com.br/api/v1/books/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return api;
+}
+
 export {
   LoginRequest,
   BooksRequest,
+  BookIdRequest,
 };
