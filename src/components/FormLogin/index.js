@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import {
   Container, Row, FormControl, FloatingLabel, Button, Overlay, Tooltip,
 } from 'react-bootstrap';
-import LoginRequest from '../../services/api';
+import { LoginRequest } from '../../services/api';
 
 function FormLogin() {
   const [show, setShow] = useState(false);

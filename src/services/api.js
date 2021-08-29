@@ -11,4 +11,17 @@ async function LoginRequest(email, password) {
   return api;
 }
 
-export default LoginRequest;
+async function BooksRequest(token, page) {
+  const api = await axios.get(`https://books.ioasys.com.br/api/v1/books?page=${page}&amount=12`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return api;
+}
+
+export {
+  LoginRequest,
+  BooksRequest,
+};
