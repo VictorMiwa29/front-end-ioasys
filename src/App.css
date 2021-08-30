@@ -52,6 +52,16 @@
   padding-right: 0%;
 }
 
+@media(max-width: 990px) {
+  #imageBookDetail {
+    width: 100%;
+  }
+  #rowDetails {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 @media(max-width: 600px) {
   #paginas {
     justify-content: center !important;
@@ -79,12 +89,4 @@
     display: flex;
     flex-direction: column;
   }
-}
-
-.btn-close {
-  position: fixed;
-  display: block;
-  top: 10px;
-  right: 10px;
-  overflow: visible;
 }

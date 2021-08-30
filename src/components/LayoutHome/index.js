@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Container, Row, Button } from 'react-bootstrap';
 import { FiLogOut } from 'react-icons/fi';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../../context/Auth';
 import { BooksRequest } from '../../services/api';
 import CardBook from '../CardBooks';
@@ -11,6 +12,7 @@ function LayoutHome() {
   const [books, setBooks] = useState([]);
   const [page, setPage] = useState(1);
   const [pageTotal, setPageTotal] = useState(0);
+  const history = useHistory();
 
   async function getBooks() {
     try {
@@ -37,6 +39,11 @@ function LayoutHome() {
     return setPage(page - 1);
   }
 
+  function exitButton() {
+    localStorage.removeItem('user');
+    return history.push('/login');
+  }
+
   useEffect(() => {
     getBooks();
   }, [page]);
@@ -56,6 +63,7 @@ function LayoutHome() {
               borderRadius: '50%', height: '35px', width: '35px', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white', borderColor: '#333333',
             }}
             className="ms-4"
+            onClick={() => exitButton()}
           >
             <FiLogOut style={{ color: '#333333' }} />
           </Button>
