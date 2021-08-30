@@ -28,7 +28,7 @@ function CardBook({
   return (
     <>
       <Col lg={3} className="pt-2 p-2">
-        <Card style={{ padding: '15px', cursor: 'pointer' }} onClick={() => showDetails(id)}>
+        <Card className="shadow" style={{ padding: '15px', cursor: 'pointer' }} onClick={() => showDetails(id)}>
           <CardImg variant="left" src={image} style={{ width: '81px', height: '122px' }} />
           <Container className="d-flex flex-column justify-content-between ps-3 g-0">
             <Container>
