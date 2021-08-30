@@ -10,9 +10,7 @@ import { AuthContext } from './context/Auth';
 
 /* eslint-disable react/jsx-props-no-spreading */
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { token, loading } = useContext(AuthContext);
-
-  if (loading) return <span />;
+  const { token } = useContext(AuthContext);
 
   return (
     <Route

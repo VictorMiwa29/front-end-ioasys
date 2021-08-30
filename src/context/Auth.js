@@ -18,6 +18,8 @@ export default function AuthProvider({ children }) {
     return setLoading(false);
   }, []);
 
+  if (loading) return <span />;
+
   return (
     <AuthContext.Provider value={
       {
