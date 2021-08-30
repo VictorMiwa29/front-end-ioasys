@@ -19,7 +19,7 @@ function LayoutHome() {
       setPageTotal(Math.round(data.totalPages));
       return setBooks(data.data);
     } catch (error) {
-      return console.log(error);
+      return error.message;
     }
   }
 
@@ -44,11 +44,11 @@ function LayoutHome() {
   return (
     <Container>
       <Container className="d-flex justify-content-between">
-        <Container className="d-flex pt-4" id="ioasys">
+        <Container className="d-flex pt-4 g-0" id="ioasys">
           <p style={{ fontSize: '40px', fontWeight: 'bold' }}>ioasys</p>
           <p style={{ fontSize: '36px' }} className="ms-3 mt-1">Books</p>
         </Container>
-        <Container className="d-flex justify-content-end align-items-center">
+        <Container className="d-flex justify-content-end align-items-center g-0">
           <p style={{ fontSize: '12px' }} className="mt-4" id="nome">Bem vindo,&nbsp;</p>
           <p style={{ fontSize: '12px', fontWeight: 'bold' }} className="mt-4" id="nome">{nameUser}</p>
           <Button
@@ -76,7 +76,7 @@ function LayoutHome() {
         )) }
       </Row>
       <Container>
-        <Container className="d-flex justify-content-end align-items-center" id="paginas">
+        <Container className="d-flex justify-content-end align-items-center g-0" id="paginas">
           <p style={{ fontSize: '12px' }} className="mt-4" id="textoPaginas">{`Página ${page} de ${pageTotal}`}</p>
           <Button
             style={{
