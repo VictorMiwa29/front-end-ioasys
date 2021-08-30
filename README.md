@@ -10,9 +10,16 @@ Clonar o repositorio
 Entrar na pasta
 - cd front-end-ioasys
 
-Executar o comando no terminal
+Executar o comando no terminal para instalar as dependências
+- npm install
 
 # Iniciando a aplicção
 
 - npm start
+
+# Tecnologias utilizadas
+- React
+- Context API
+- Axios
+- React Bootstrap
 
