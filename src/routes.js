@@ -10,12 +10,12 @@ import { AuthContext } from './context/Auth';
 
 /* eslint-disable react/jsx-props-no-spreading */
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { token } = useContext(AuthContext);
+  const { authorization } = useContext(AuthContext);
 
   return (
     <Route
       {...rest}
-      render={() => (token ? <Component {...rest} /> : <Redirect to="/login" />)}
+      render={() => (authorization ? <Component {...rest} /> : <Redirect to="/login" />)}
     />
   );
 };
@@ -25,8 +25,8 @@ export default function Routes() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={() => <Redirect to="/login" />} />
-        <Route path="/login" component={Login} />
-        <PrivateRoute path="/home" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <PrivateRoute exact path="/home" component={Home} />
       </Switch>
     </BrowserRouter>
   );

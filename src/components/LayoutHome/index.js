@@ -21,7 +21,8 @@ function LayoutHome() {
       setPageTotal(Math.round(data.totalPages));
       return setBooks(data.data);
     } catch (error) {
-      return error.message;
+      localStorage.removeItem('user');
+      return history.push('/login');
     }
   }
 

@@ -76,6 +76,6 @@ export default function ModalBooks({
 ModalBooks.propTypes = {
   showModal: PropTypes.bool.isRequired,
   setShowModal: PropTypes.func.isRequired,
-  detailsBook: PropTypes.objectOf(PropTypes.string).isRequired,
+  detailsBook: PropTypes.objectOf(PropTypes.node).isRequired,
   authors: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

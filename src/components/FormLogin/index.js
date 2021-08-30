@@ -1,9 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
   Container, Row, FormControl, FloatingLabel, Button, Overlay, Tooltip,
 } from 'react-bootstrap';
 import { LoginRequest } from '../../services/api';
+import { AuthContext } from '../../context/Auth';
 
 function FormLogin() {
   const [show, setShow] = useState(false);
@@ -11,11 +12,13 @@ function FormLogin() {
   const [password, setPassword] = useState('');
   const target = useRef(null);
   const history = useHistory();
+  const { setLoading } = useContext(AuthContext);
 
   async function buttonLogin() {
     try {
       const { data: { name }, headers: { authorization } } = await LoginRequest(email, password);
       localStorage.setItem('user', JSON.stringify({ name, token: authorization }));
+      setLoading(true);
       return history.push('/home');
     } catch (error) {
       return setShow(true);

@@ -56,9 +56,11 @@
   position: absolute;
   top: -20px;
   right: -250px;
-  border: 1px solid;
-  border-radius: 50%;
+  border: 1px solid black !important;
+  border-radius: 50% !important;
   box-shadow: none;
+  opacity: 1 !important;
+  background-color: white !important;
 }
 
 @media(max-width: 990px) {

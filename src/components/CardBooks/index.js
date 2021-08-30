@@ -4,6 +4,7 @@ import {
 } from 'react-bootstrap';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import ModalBooks from '../Modal';
 import { AuthContext } from '../../context/Auth';
 import { BookIdRequest } from '../../services/api';
@@ -14,6 +15,7 @@ function CardBook({
   const { token } = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
   const [detailsBook, setDetailsBook] = useState({});
+  const history = useHistory();
 
   async function showDetails(idBook) {
     try {
@@ -21,7 +23,8 @@ function CardBook({
       setDetailsBook(data);
       return setShowModal(true);
     } catch (error) {
-      return error.message;
+      localStorage.removeItem('user');
+      return history.push('/login');
     }
   }
 
