@@ -15,7 +15,7 @@ export default function ModalBooks({
       show={showModal}
       onHide={() => setShowModal(false)}
       centered
-      style={{ marginTop: '25px' }}
+      style={{ marginTop: '15px' }}
       id="modal"
     >
       <Modal.Header closeButton>
