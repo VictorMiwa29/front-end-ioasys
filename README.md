@@ -8,7 +8,7 @@ Clonar o repositorio
 - git clone https://github.com/VictorMiwa29/front-end-ioasys.git
 
 Entrar na pasta
-- cd front-end
+- cd front-end-ioasys
 
 Executar o comando no terminal
 
