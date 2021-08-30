@@ -3,7 +3,7 @@ import axios from 'axios';
 require('dotenv').config();
 
 async function LoginRequest(email, password) {
-  const api = await axios.post(process.env.REACT_APP_API_LOGIN, {
+  const api = await axios.post('https://books.ioasys.com.br/api/v1/auth/sign-in', {
     email,
     password,
   });
