@@ -24,6 +24,7 @@ export default function Routes() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route exact path="/" component={() => <Redirect to="/login" />} />
         <Route path="/login" component={Login} />
         <PrivateRoute path="/home" component={Home} />
       </Switch>
