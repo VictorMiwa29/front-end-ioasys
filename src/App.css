@@ -73,6 +73,10 @@
   }
   #modal {
     margin-top: 130px;
+    padding-left: 0;
+  }
+  .modal {
+    padding-left: 0 !important;
   }
   .btn-close {
     position: absolute;
